@@ -34,11 +34,62 @@
       z-index: 1001;
     }
 
-    
-    
+    .menu-btn img{
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 240px;
+      height: 100vh;
+      background-color: rgba(25, 20, 18, 0.92);
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      padding: 15px 30px;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    } 
   </style>
 </head>
 <body>
+ 
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+    <img src="icons/list.svg" alt="Menu">
+  </button>
+
+  <nav class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="about.html">About</a>
+  </nav>
+  
   <h1>Welcome to the Bakebook</h1>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
+
 </body>
 </html>
